@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="jp">
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Aoboshi+One&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Aoboshi+One&family=Noto+Sans+JP:wght@800&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>なんでも PNGにカエルくん Vr.1.2</title>
+</head>
+<style>
+/* ボタンのスタイル */
+.buttonOutlineGradient {
+  /* 省略 */
+
+  background: linear-gradient(135deg, #6fa24a, #15a1cc);
+}
+.buttonOutlineGradient::before {
+  /* 省略 */
+
+  background: linear-gradient(135deg, #6fa24a, #15a1cc);
+  filter: blur(8px);
+  border-radius: 32px;
+  opacity: 0;
+}
+
+@media (any-hover: hover) {
+  .buttonOutlineGradient::before {
+    transition: opacity 0.2s;
+    will-change: filter;
+  }
+
+  .buttonOutlineGradient:hover::before {
+    opacity: 1;
+  }
+}
+</style>
+<body style="background-image: url(https://raw.githubusercontent.com/kaepi2022/PNGKUN/main/PNG_KUN_BG.png);">
+<!-- admax -->
+<script src="https://adm.shinobi.jp/s/1685dc37b4532ecd9d609ec5404b79a3"></script>
+<!-- admax -->
+  <div style="background-color: red; width: 1400px; hight: 222px">
+  <br>
+  <a style="text-decoration: none; color: #ffff; font-family: Aoboshi One" href="https://kaepi2022.github.io"><p><image src="https://raw.githubusercontent.com/kaepi2022/PNGKUN/main/PNGKUN.png" width="50"><font size="10">PNGなんでもPNGにカエルくん Ver.1.2</font></a></p>
+  <br>
+  <input style="font-family: Mochiy Pop One" class="buttonOutlineGradient" type="file" id="imageInput" accept="image/*">
+  <button style="font-family: Mochiy Pop One; width: 120px; "class="buttonOutlineGradient" onclick="convertToPNG()">PNGに変換</button>
+  <br>
+  <br>
+</div>
+  <br>
+  <font size="5" style="color: #ffff;font-family: Noto Sans JP; -webkit-text-stroke-width: 1px; -webkit-text-stroke-color: black;">JPEG(JPG)、Webp、gifなど幅広い拡張子をPNGに変換します。</font>
+  <br> 
+  <img id="convertedImg" alt="変換したイメージが表示されまっす！">
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<p style="background-color: red; hight: 1000px; color: #ffff;"><image width="50" Hidth="50"  src="https://raw.githubusercontent.com/kaepi2022/Famicom-Emu/main/Cocoa.jpg"><font size="10">©2023 MineKura ©2023 GitHub Site</font></p>
+  <script>
+    function convertToPNG() {
+
+      const input = document.getElementById('imageInput');
+      const file = input.files[0];
+
+      if (file) {
+        const reader = new FileReader();
+
+        reader.onload = function (e) {
+
+          const img = new Image();
+          img.src = e.target.result;
+
+          img.onload = function () {
+            const canvas = document.createElement('canvas');
+            canvas.width = img.width;
+            canvas.height = img.height;
+            const ctx = canvas.getContext('2d');
+            ctx.drawImage(img, 0, 0);
+
+            const pngDataURL = canvas.toDataURL('image/png');
+
+            const convertedImg = document.getElementById('convertedImg');
+            convertedImg.src = pngDataURL;
+          };
+        };
+
+        reader.readAsDataURL(file);
+      }
+    }
+  </script>
+
+</body>
+</html>
